@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#09090b"><meta name="description" content="Discover trending movies and official trailers with CineFlix.">
+<title>CineFlix — Stories worth staying up for</title>
+<link rel="preconnect" href="https://image.tmdb.org">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"><script defer src="script.js"></script></head>
+<body>
+<header class="topbar"><div class="nav-inner">
+<button class="icon-btn menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+<a class="brand" href="#home"><span class="brand-icon">▶</span><span>CINE<span>FLIX</span></span></a>
+<nav class="nav-links" id="navLinks"><a class="active" href="#home">Home</a><a href="#movies">Movies</a><a href="#series">TV Series</a><a href="#trending">Trending</a><a href="#top-rated">Top Rated</a></nav>
+<div class="nav-actions"><form id="searchForm" class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search titles..." aria-label="Search movies"></form><button id="searchToggle" class="icon-btn search-toggle" aria-label="Show search">⌕</button><button id="watchlistToggle" class="icon-btn" aria-label="Show watchlist">♡ <span id="watchCount">0</span></button></div>
+</div></header>
+<main id="home">
+<section class="hero"><div class="hero-backdrop" id="heroBackdrop"></div><div class="hero-shade"></div><div class="hero-content">
+<div class="eyebrow"><span class="live-dot"></span> THIS WEEK'S SPOTLIGHT</div><h1 id="heroTitle">Stories worth<br>staying up for.</h1>
+<div class="hero-meta" id="heroMeta"><span class="quality">CINEMATIC DISCOVERY</span></div><p id="heroOverview">Discover the films everyone's talking about. Your next favorite story is waiting.</p>
+<div class="hero-actions"><button class="btn btn-primary" id="watchTrailerBtn">▶ Watch trailer</button><button class="btn btn-glass" id="moreInfoBtn">ⓘ More info</button></div>
+<div class="hero-foot"><span>✦ Curated for movie lovers</span><div id="heroDots" class="hero-dots"></div></div></div><div class="hero-number"><span>FEATURED</span><b id="heroNum">01</b><i></i>05</div></section>
+<section class="content-section" id="trending"><div class="section-heading"><div><h2>Trending this week</h2><span class="red-line"></span></div><a href="#catalog" class="see-all" data-jump="trending">Explore all →</a></div><div class="movie-row" id="trendingRow"></div></section>
+<section class="content-section" id="movies"><div class="section-heading"><div><h2>Popular movies</h2><span class="red-line"></span></div><a href="#catalog" class="see-all" data-jump="popular">Explore all →</a></div><div class="movie-row" id="popularRow"></div></section>
+<section class="content-section"><div class="section-heading"><div><h2>Fresh from the cinema</h2><span class="red-line"></span></div><a href="#catalog" class="see-all" data-jump="latest">Explore all →</a></div><div class="movie-row" id="latestRow"></div></section>
+<section class="content-section" id="top-rated"><div class="section-heading"><div><h2>The highest rated</h2><span class="red-line"></span></div><a href="#catalog" class="see-all" data-jump="top_rated">Explore all →</a></div><div class="movie-row" id="topRatedRow"></div></section>
+<section class="content-section" id="series"><div class="section-heading"><div><h2>Popular TV series</h2><span class="red-line"></span></div><a href="#catalog" class="see-all" data-jump="tv">Explore all →</a></div><div class="movie-row" id="tvRow"></div></section>
+<section class="catalog-section" id="catalog"><div class="page-heading"><div class="eyebrow">THE CINEFLIX COLLECTION</div><h2 id="catalogTitle">Explore movies</h2><p>Handpicked stories for every kind of movie night.</p></div>
+<div class="filter-bar"><label>Genre <select id="genreFilter"><option value="">All genres</option></select></label><label>Sort by <select id="sortFilter"><option value="popularity.desc">Most popular</option><option value="vote_average.desc">Highest rated</option><option value="primary_release_date.desc">Newest first</option><option value="primary_release_date.asc">Oldest first</option></select></label><span id="resultCount"></span></div>
+<div id="catalogGrid" class="catalog-grid"></div><div id="pagination" class="pagination"></div></section>
+</main>
+<section class="detail-view hidden" id="detailView"><button class="back-link" id="backHome">← Back to CineFlix</button><div id="detailContent"></div></section>
+<section class="watchlist-view hidden" id="watchlistView"><div class="page-heading"><div class="eyebrow">YOUR PERSONAL COLLECTION</div><h2>My watchlist</h2><p>Keep the stories you want to come back to.</p></div><div id="watchlistGrid" class="catalog-grid"></div><div id="watchlistEmpty" class="empty-state hidden"><div class="empty-icon">♡</div><h3>Your watchlist is waiting</h3><p>Save movies as you explore, and they'll be collected here.</p><button class="btn btn-primary" id="exploreBtn">Explore movies</button></div></section>
+<section class="search-view hidden" id="searchView"><div class="page-heading"><div class="eyebrow">FIND YOUR NEXT FAVORITE</div><h2 id="searchTitle">Search CineFlix</h2><p id="searchSubtitle">Search movies and series from the TMDB catalog.</p></div><div id="searchResults" class="catalog-grid"></div></section>
+<footer class="footer"><div class="footer-main"><div><a class="brand" href="#home"><span class="brand-icon">▶</span><span>CINE<span>FLIX</span></span></a><p>Stories worth staying up for.<br>Your next favorite is waiting.</p></div><div class="footer-links"><div><b>Explore</b><a href="#movies">Movies</a><a href="#series">TV series</a><a href="#watchlist" id="footerWatchlist">Watchlist</a></div><div><b>CineFlix</b><a href="#about" data-info="about">About us</a><a href="mailto:hello@cineflix.example">Contact</a><a href="#privacy" data-info="privacy">Privacy policy</a><a href="#terms" data-info="terms">Terms of service</a></div></div></div><div class="footer-bottom"><span>© <span id="year"></span> CineFlix. All rights reserved.</span><span>Movie data supplied by TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB.</span></div></footer>
+<div class="modal hidden" id="videoModal" role="dialog" aria-modal="true" aria-label="Official trailer"><div class="modal-backdrop" id="closeModalBackdrop"></div><div class="modal-panel"><button class="modal-close" id="closeModal" aria-label="Close">✕</button><div id="videoContainer"></div></div></div><div class="toast" id="toast" role="status"></div>
+</body></html>
